@@ -1,0 +1,25 @@
+            #1. Home: добавление комментария
+import time
+from selenium import webdriver
+driver = webdriver.Chrome(executable_path='C:/chromedriver.exe')
+driver.maximize_window()
+driver.get("https://practice.automationtesting.in/")
+time.sleep(3)
+driver.execute_script("window.scrollTo(0, 600)")
+selenium_ruby_btn=driver.find_element_by_css_selector(".post-160 > a > h3")
+selenium_ruby_btn.click()
+reviews_btn=driver.find_element_by_css_selector(".woocommerce-tabs > .tabs  > .reviews_tab")
+reviews_btn.click()
+time.sleep(1)
+five_star =driver.find_element_by_css_selector(".star-5")
+five_star.click()
+comment =driver.find_element_by_id("comment")
+comment.send_keys("Nice book!")
+author=driver.find_element_by_id("author")
+author.send_keys("Rail")
+email=driver.find_element_by_id("email")
+email.send_keys("yourfavoritetester@gmail.com")
+submit_btn =driver.find_element_by_css_selector(".submit")
+submit_btn.click()
+driver.quit()
+
